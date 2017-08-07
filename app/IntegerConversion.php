@@ -26,6 +26,7 @@ class IntegerConversion implements IntegerConversionInterface
 
     public function toRomanNumerals($integer)
     {
+        $this->result = false;
         $this->integer = $integer;
 
         while($integer > 0) 
