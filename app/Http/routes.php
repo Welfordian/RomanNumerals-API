@@ -2,6 +2,7 @@
 
 Route::group(['prefix' => 'api'], function () {
     Route::get('convert/{integer}', 'ApiController@convert')
+            ->middleware('checkinteger')
             ->where('integer', '[0-9]+'); // Accept the integer, convert to Roman numerals and return result
     
     Route::group(['prefix' => 'stats'], function () {
