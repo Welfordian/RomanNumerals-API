@@ -14,27 +14,27 @@ class ApiController extends Controller
 
     public function convert(IntegerConversion $converter, $integer)
     {
-        $converted_integer = $converter->toRomanNumerals($integer); // Convert the integer
+        $converted_integer = $converter->toRomanNumerals($integer); // Convert the integer to Roman numerals
 
         $results = [$converter->store()]; // Save the result and return it back
-        $transformed_result = $this->transform($results, new ConversionResultTransformer); // Transform the result for 
+        $transformed_result = $this->transform($results, new ConversionResultTransformer); // Transform the result
 
-        return $transformed_result;
+        return $transformed_result; // Return as is
     }
 
     public function showTop()
     {
-        $results = ConversionResult::topTen();
-        $transformed_results = $this->transform($results, new ConversionResultTransformer);
+        $results = ConversionResult::topTen(); // Grab the top ten results
+        $transformed_results = $this->transform($results, new ConversionResultTransformer); // Transform the result
 
-        return $transformed_results;
+        return $transformed_results; // Return as is
     }
 
     public function showRecent()
     {
-        $results = ConversionResult::recent();
-        $transformed_results = $this->transform($results, new ConversionResultTransformer);
+        $results = ConversionResult::recent(); // Grab the top fifty results
+        $transformed_results = $this->transform($results, new ConversionResultTransformer); // Transform the result
 
-        return $transformed_results;
+        return $transformed_results; // Return as is
     }
 }

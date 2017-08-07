@@ -24,7 +24,7 @@ class ConversionResult extends Model
         return $query->select('*', DB::raw('COUNT(subject) AS occurrences'))
             ->groupBy('subject')
             ->orderBy('occurrences', 'DESC')
-            ->limit(2)
+            ->limit(10)
             ->get();
     }
 }

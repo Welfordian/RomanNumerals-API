@@ -6,16 +6,9 @@ use Closure;
 
 class CheckIntegerParameter
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle($request, Closure $next)
     {
-        if ($request->integer < 1 || $request->integer > 3999)
+        if ($request->integer < 1 || $request->integer > 3999) // Must be between 1 & 3999
         {
             return response([
                 'error' => [
@@ -25,6 +18,6 @@ class CheckIntegerParameter
             ], 400);
         }
 
-        return $next($request);
+        return $next($request); // Continue the request chain
     }
 }
